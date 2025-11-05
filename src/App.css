@@ -37,3 +37,47 @@
 .read-the-docs {
   color: #888;
 }
+
+/* --- Responsive adjustments for mobile --- */
+@media (max-width: 768px) {
+  header div {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px !important;
+  }
+
+  h2 {
+    font-size: 32px !important;
+  }
+
+  h3 {
+    font-size: 26px !important;
+  }
+
+  p {
+    font-size: 15px !important;
+  }
+
+  section {
+    padding: 24px 12px !important;
+  }
+
+  video {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .goal-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
