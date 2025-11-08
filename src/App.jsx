@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
+import "./App.css";
 
 export default function App() {
   return (
@@ -22,7 +24,6 @@ export default function App() {
       <header
         style={{
           width: "100%",
-          boxSizing: "border-box",
           background: "#ffffff",
           color: "#0b1220",
           borderBottom: "1px solid rgba(2,6,23,0.08)",
@@ -55,6 +56,7 @@ export default function App() {
               style={{ borderRadius: 10, backgroundColor: "transparent" }}
             />
           </a>
+
           <nav
             style={{
               display: "flex",
@@ -68,23 +70,16 @@ export default function App() {
             <a href="#projects" style={{ color: "inherit" }}>
               Projects
             </a>
-            <a href="/about" style={{ color: "inherit" }}>
+            <Link to="/about" style={{ color: "inherit", textDecoration: "none" }}>
               About
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
 
       {/* MAIN */}
-      <main
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {/* HERO SECTION */}
+      <main style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        {/* Hero Section */}
         <section
           style={{
             width: "100%",
@@ -113,7 +108,7 @@ export default function App() {
           />
         </section>
 
-        {/* INTRO */}
+        {/* Intro */}
         <section
           style={{
             width: "100%",
@@ -162,7 +157,7 @@ export default function App() {
           </p>
         </section>
 
-        {/* PROJECTS */}
+        {/* Projects */}
         <section
           id="projects"
           style={{
@@ -196,7 +191,6 @@ export default function App() {
               zIndex: 1,
             }}
           >
-            {/* Project 1 */}
             <div
               style={{
                 display: "flex",
@@ -228,17 +222,8 @@ export default function App() {
               </span>
             </div>
 
-            {/* Placeholder Projects */}
             {[450, 900].map((delay, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 8,
-                }}
-              >
+              <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
                 <div
                   style={{
                     display: "flex",
@@ -253,9 +238,7 @@ export default function App() {
                 >
                   <LiquidMetal size={260} mountDelayMs={delay} />
                 </div>
-                <span
-                  style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}
-                >
+                <span style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}>
                   Coming soon
                 </span>
               </div>
@@ -277,7 +260,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* OUR GOAL */}
+        {/* Goal */}
         <section
           id="goal"
           style={{
@@ -291,22 +274,14 @@ export default function App() {
             style={{
               position: "absolute",
               inset: 0,
-              zIndex: 0,
               opacity: 0.55,
               filter: "blur(50px)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              overflow: "hidden",
             }}
           >
-            <MeshGradient
-              style={{
-                width: "100vw",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
+            <MeshGradient style={{ width: "100vw", height: "100%" }} />
           </div>
 
           <div
@@ -322,33 +297,25 @@ export default function App() {
               zIndex: 1,
             }}
           >
-            {/* Left Card */}
             <div className="white-card">
               <h3>our goal.</h3>
               <p>
-                Empower everyone to understand and responsibly build with AI. We
-                design approachable resources and hands-on projects that blend
-                clarity, rigor, and creativity—so learners can explore, question,
-                and create with confidence.
+                Empower everyone to understand and responsibly build with AI.
+                We design approachable resources and hands-on projects that
+                blend clarity, rigor, and creativity—so learners can explore,
+                question, and create with confidence.
               </p>
             </div>
-
-            {/* Right Card */}
             <div className="white-card">
               <div>Plain-English explanations backed by working demos.</div>
               <div>Open projects that invite contributions and critique.</div>
-              <div>
-                Practical ethics: evaluating trade-offs, risks, and impacts.
-              </div>
+              <div>Practical ethics: evaluating trade-offs, risks, and impacts.</div>
             </div>
           </div>
         </section>
 
-        {/* RIBBON */}
-        <section
-          aria-hidden="true"
-          style={{ width: "100%", padding: "24px 0 48px" }}
-        >
+        {/* Ribbon */}
+        <section aria-hidden="true" style={{ width: "100%", padding: "24px 0 48px" }}>
           <div
             style={{
               maxWidth: 1200,
@@ -374,7 +341,7 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <footer
         style={{
           width: "100%",

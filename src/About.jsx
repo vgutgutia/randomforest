@@ -38,8 +38,7 @@ export default function About() {
             rowGap: "12px",
           }}
         >
-          <a
-            href="/"
+          <Link to="/"
             style={{
               textDecoration: "none",
               color: "#0b1220",
@@ -49,7 +48,7 @@ export default function About() {
             }}
           >
             ← Back
-          </a>
+          </Link>
           <span
             style={{
               fontFamily: "'DM Sans', sans-serif",
