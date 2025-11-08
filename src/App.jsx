@@ -6,11 +6,11 @@ import "./App.css";
 export default function App() {
   return (
     <div id="top" className="site-root">
-      {/* Header */}
+      {/* Header (black theme) */}
       <header className="site-header">
         <div className="header-wrap">
           <a href="#top" className="brand" aria-label="RandomForest Home">
-            <LiquidMetal size={64} mountDelayMs={0} style={{ borderRadius: 10 }} />
+            <LiquidMetal size={56} mountDelayMs={0} style={{ borderRadius: 10 }} />
           </a>
           <nav className="nav">
             <a href="#projects">Projects</a>
@@ -21,7 +21,7 @@ export default function App() {
 
       {/* Main */}
       <main>
-        {/* Hero video */}
+        {/* Hero video with white side gutters */}
         <section className="hero">
           <video
             src="/STG_boost.mp4"
@@ -33,20 +33,10 @@ export default function App() {
           />
         </section>
 
-        {/* Intro — new: desktop uses GIF title; mobile uses text title */}
+        {/* Intro (text only; gif is NOT here) */}
         <section className="intro section reveal">
           <div className="container intro-inner">
-            {/* Desktop GIF title (hidden on mobile) */}
-            <img
-              src="/ribbon1.gif"
-              alt="RandomForest"
-              className="title-gif"
-              onError={(e) => (e.currentTarget.style.display = "none")}
-            />
-
-            {/* Mobile text title (hidden on desktop) */}
             <h1 className="title-xl">RandomForest</h1>
-
             <p className="lede">
               Practical AI learning—clear, rigorous, hands-on. We design
               approachable resources and projects so anyone can build and
@@ -54,13 +44,13 @@ export default function App() {
             </p>
           </div>
 
-          {/* Decorative metaballs (top/right) */}
+          {/* Decorative metaballs (top/right), safely in-bounds */}
           <div className="blob blob-top-right">
-            <Metaballs style={{ width: 420, height: 320 }} />
+            <Metaballs style={{ width: 380, height: 300 }} />
           </div>
         </section>
 
-        {/* Projects — refined visuals; no clunky “coming soon” text */}
+        {/* Projects (polished) */}
         <section id="projects" className="section reveal">
           <div className="container">
             <h2 className="title-lg">our projects</h2>
@@ -76,7 +66,7 @@ export default function App() {
               >
                 <span className="tile-border" />
                 <div className="tile-inner">
-                  <LiquidMetal size={260} mountDelayMs={0} />
+                  <LiquidMetal size={240} mountDelayMs={0} />
                   <div className="tile-caption">
                     <span className="badge live">Live</span>
                     <span className="name">YAITC</span>
@@ -84,12 +74,12 @@ export default function App() {
                 </div>
               </a>
 
-              {/* Placeholder tiles — tasteful, no big 'coming soon' */}
+              {/* Tasteful placeholders */}
               {[450, 900].map((delay, i) => (
                 <div className="project-tile disabled" key={i} aria-disabled="true">
                   <span className="tile-border" />
                   <div className="tile-inner">
-                    <LiquidMetal size={260} mountDelayMs={delay} />
+                    <LiquidMetal size={240} mountDelayMs={delay} />
                     <div className="tile-caption">
                       <span className="badge soon">Soon</span>
                       <span className="name muted">Project</span>
@@ -101,9 +91,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* Goal — same fade top/bottom treatment as About; white text on gradient */}
+        {/* Goal — fade edges exactly like About, effect stays within mask */}
         <section id="goal" className="section section-gradient fade-edges reveal">
-          <div className="mesh-bg">
+          <div className="mesh-bg clamp-effect">
             <MeshGradient />
           </div>
 
@@ -122,9 +112,21 @@ export default function App() {
           </div>
         </section>
 
-        {/* About — same fade edges, fixed bleed & no clipping */}
+        {/* Ribbon GIF — stays between Goal and About; NO white edges */}
+        <section aria-hidden="true" className="section ribbon reveal">
+          <div className="container center">
+            <img
+              src="/ribbon1.gif"
+              alt=""
+              className="ribbon-img"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
+          </div>
+        </section>
+
+        {/* About — same fade, clamped effect; blobs not clipped */}
         <section id="about" className="section section-gradient fade-edges reveal">
-          <div className="mesh-bg">
+          <div className="mesh-bg clamp-effect">
             <MeshGradient variant="about" />
           </div>
 
@@ -137,7 +139,6 @@ export default function App() {
               and informed judgment.
             </p>
 
-            {/* Team */}
             <div className="team">
               {/* Vansh */}
               <div className="team-card">
@@ -173,9 +174,9 @@ export default function App() {
             </div>
           </div>
 
-          {/* Decorative metaballs (bottom/left), safe & not clipped */}
+          {/* Decorative metaballs (bottom/left), moved in-bounds */}
           <div className="blob blob-bottom-left">
-            <Metaballs style={{ width: 360, height: 300 }} />
+            <Metaballs style={{ width: 320, height: 260 }} />
           </div>
         </section>
       </main>
