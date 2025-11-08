@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
@@ -17,10 +16,11 @@ export default function App() {
         flexDirection: "column",
         alignItems: "center",
         overflowX: "hidden",
-        fontFamily: "'Inter', system-ui, sans-serif",
+        fontFamily:
+          "'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
       }}
     >
-      {/* HEADER */}
+      {/* Header */}
       <header
         style={{
           width: "100%",
@@ -56,7 +56,6 @@ export default function App() {
               style={{ borderRadius: 10, backgroundColor: "transparent" }}
             />
           </a>
-
           <nav
             style={{
               display: "flex",
@@ -70,15 +69,22 @@ export default function App() {
             <a href="#projects" style={{ color: "inherit" }}>
               Projects
             </a>
-            <Link to="/about" style={{ color: "inherit", textDecoration: "none" }}>
+            <a href="#about" style={{ color: "inherit" }}>
               About
-            </Link>
+            </a>
           </nav>
         </div>
       </header>
 
-      {/* MAIN */}
-      <main style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      {/* Main */}
+      <main
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {/* Hero Section */}
         <section
           style={{
@@ -119,7 +125,7 @@ export default function App() {
         >
           <p
             style={{
-              margin: "8px auto",
+              margin: "8px auto 8px",
               color: "#94a3b8",
               fontSize: 14,
               letterSpacing: 2,
@@ -138,7 +144,6 @@ export default function App() {
               background: "linear-gradient(90deg, #fff, #60a5fa)",
               WebkitBackgroundClip: "text",
               color: "transparent",
-              fontFamily: "'DM Sans', sans-serif",
             }}
           >
             Learn, build, and explore responsible AI with RandomForest
@@ -146,7 +151,7 @@ export default function App() {
           <p
             style={{
               margin: "0 auto",
-              maxWidth: 550,
+              maxWidth: 520, // narrower paragraph fix
               fontSize: "clamp(14px, 2vw, 16px)",
               color: "#cbd5e1",
               lineHeight: 1.7,
@@ -171,11 +176,11 @@ export default function App() {
             style={{
               margin: "0 0 32px",
               fontSize: "clamp(26px, 4vw, 36px)",
+              lineHeight: 1.1,
               fontWeight: 800,
               letterSpacing: 0.2,
               color: "#e2e8f0",
               textAlign: "center",
-              fontFamily: "'DM Sans', sans-serif",
             }}
           >
             our projects
@@ -191,6 +196,7 @@ export default function App() {
               zIndex: 1,
             }}
           >
+            {/* Project 1 */}
             <div
               style={{
                 display: "flex",
@@ -217,13 +223,24 @@ export default function App() {
               >
                 <LiquidMetal size={260} mountDelayMs={0} />
               </a>
-              <span style={{ color: "#e2e8f0", fontSize: 20, fontWeight: 700 }}>
+              <span
+                style={{ color: "#e2e8f0", fontSize: 20, fontWeight: 700 }}
+              >
                 YAITC
               </span>
             </div>
 
+            {/* Coming Soon */}
             {[450, 900].map((delay, i) => (
-              <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -238,13 +255,16 @@ export default function App() {
                 >
                   <LiquidMetal size={260} mountDelayMs={delay} />
                 </div>
-                <span style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}>
+                <span
+                  style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}
+                >
                   Coming soon
                 </span>
               </div>
             ))}
           </div>
 
+          {/* Metaballs background, hidden on mobile */}
           <div
             className="metaballs-fx"
             style={{
@@ -260,7 +280,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Goal */}
+        {/* Our Goal */}
         <section
           id="goal"
           style={{
@@ -293,8 +313,8 @@ export default function App() {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: 32,
-              position: "relative",
               zIndex: 1,
+              position: "relative",
             }}
           >
             <div className="white-card">
@@ -315,7 +335,7 @@ export default function App() {
         </section>
 
         {/* Ribbon */}
-        <section aria-hidden="true" style={{ width: "100%", padding: "24px 0 48px" }}>
+        <section aria-hidden="true" style={{ width: "100%", padding: "24px 0 60px" }}>
           <div
             style={{
               maxWidth: 1200,
@@ -337,6 +357,69 @@ export default function App() {
               }}
               onError={(e) => (e.currentTarget.style.display = "none")}
             />
+          </div>
+        </section>
+
+        {/* About (Back inline) */}
+        <section
+          id="about"
+          style={{
+            width: "100%",
+            padding: "64px 0 120px",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              opacity: 0.55,
+              filter: "blur(50px)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <MeshGradient variant="about" style={{ width: "100vw", height: "100%" }} />
+          </div>
+
+          <div
+            style={{
+              maxWidth: 1200,
+              margin: "0 auto",
+              padding: "0 24px",
+              zIndex: 1,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                background: "rgba(255, 255, 255, 0.95)",
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                borderRadius: 16,
+                padding: 28,
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "clamp(26px, 4vw, 34px)", color: "#0b1220" }}>
+                about us.
+              </h3>
+              <p
+                style={{
+                  margin: "12px 0 0",
+                  color: "#1e293b",
+                  lineHeight: 1.95,
+                  fontSize: "clamp(16px, 2vw, 18px)",
+                }}
+              >
+                RandomForest is a nonprofit for AI education. We build public
+                resources, workshops, and open projects to help people understand
+                and evaluate modern AI systems—while developing practical skills
+                and informed judgment.
+              </p>
+            </div>
           </div>
         </section>
       </main>
