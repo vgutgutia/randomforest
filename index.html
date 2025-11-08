@@ -2,12 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>liquid-metal-demo</title>
+
+    <!-- Title & Description -->
+    <title>RandomForest — AI Education</title>
+    <meta
+      name="description"
+      content="RandomForest is a nonprofit organization dedicated to making AI education accessible through hands-on projects, demos, and open learning resources."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="RandomForest — AI Education" />
+    <meta
+      property="og:description"
+      content="Learn, build, and explore responsible AI through hands-on projects and resources."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Smooth scrolling & base styling -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background-color: #020617;
+        font-family: "Inter", system-ui, sans-serif;
+      }
+
+      ::selection {
+        background: #60a5fa;
+        color: white;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- Entry point -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

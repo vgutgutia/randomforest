@@ -15,11 +15,10 @@ export default function App() {
         flexDirection: "column",
         alignItems: "center",
         overflowX: "hidden",
-        fontFamily:
-          "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji",
+        fontFamily: "'Inter', system-ui, sans-serif",
       }}
     >
-      {/* Header */}
+      {/* HEADER */}
       <header
         style={{
           width: "100%",
@@ -30,7 +29,6 @@ export default function App() {
         }}
       >
         <div
-          className="header-container"
           style={{
             maxWidth: "min(1200px, 95%)",
             margin: "0 auto",
@@ -38,7 +36,6 @@ export default function App() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            boxSizing: "border-box",
             flexWrap: "wrap",
             rowGap: "12px",
           }}
@@ -71,14 +68,14 @@ export default function App() {
             <a href="#projects" style={{ color: "inherit" }}>
               Projects
             </a>
-            <a href="#about" style={{ color: "inherit" }}>
+            <a href="/about" style={{ color: "inherit" }}>
               About
             </a>
           </nav>
         </div>
       </header>
 
-      {/* Main */}
+      {/* MAIN */}
       <main
         style={{
           width: "100%",
@@ -87,7 +84,7 @@ export default function App() {
           alignItems: "center",
         }}
       >
-        {/* Hero section */}
+        {/* HERO SECTION */}
         <section
           style={{
             width: "100%",
@@ -116,7 +113,7 @@ export default function App() {
           />
         </section>
 
-        {/* Intro */}
+        {/* INTRO */}
         <section
           style={{
             width: "100%",
@@ -127,7 +124,7 @@ export default function App() {
         >
           <p
             style={{
-              margin: "8px auto 8px",
+              margin: "8px auto",
               color: "#94a3b8",
               fontSize: 14,
               letterSpacing: 2,
@@ -146,6 +143,7 @@ export default function App() {
               background: "linear-gradient(90deg, #fff, #60a5fa)",
               WebkitBackgroundClip: "text",
               color: "transparent",
+              fontFamily: "'DM Sans', sans-serif",
             }}
           >
             Learn, build, and explore responsible AI with RandomForest
@@ -153,7 +151,7 @@ export default function App() {
           <p
             style={{
               margin: "0 auto",
-              maxWidth: 700,
+              maxWidth: 550,
               fontSize: "clamp(14px, 2vw, 16px)",
               color: "#cbd5e1",
               lineHeight: 1.7,
@@ -164,7 +162,7 @@ export default function App() {
           </p>
         </section>
 
-        {/* Projects */}
+        {/* PROJECTS */}
         <section
           id="projects"
           style={{
@@ -178,11 +176,11 @@ export default function App() {
             style={{
               margin: "0 0 32px",
               fontSize: "clamp(26px, 4vw, 36px)",
-              lineHeight: 1.1,
               fontWeight: 800,
               letterSpacing: 0.2,
               color: "#e2e8f0",
               textAlign: "center",
+              fontFamily: "'DM Sans', sans-serif",
             }}
           >
             our projects
@@ -223,81 +221,49 @@ export default function App() {
                   cursor: "pointer",
                 }}
               >
-                <LiquidMetal
-                  size={260}
-                  mountDelayMs={0}
-                  style={{ cursor: "pointer" }}
-                />
+                <LiquidMetal size={260} mountDelayMs={0} />
               </a>
-              <span
-                style={{ color: "#e2e8f0", fontSize: 20, fontWeight: 700 }}
-              >
+              <span style={{ color: "#e2e8f0", fontSize: 20, fontWeight: 700 }}>
                 YAITC
               </span>
             </div>
 
-            {/* Placeholder 2 */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
+            {/* Placeholder Projects */}
+            {[450, 900].map((delay, i) => (
               <div
+                key={i}
                 style={{
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 16,
-                  background: "rgba(2,6,23,0.6)",
-                  border: "1px solid rgba(148,163,184,0.15)",
-                  padding: 8,
+                  gap: 8,
                 }}
-                title="Coming soon"
               >
-                <LiquidMetal size={260} mountDelayMs={450} />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 16,
+                    background: "rgba(2,6,23,0.6)",
+                    border: "1px solid rgba(148,163,184,0.15)",
+                    padding: 8,
+                  }}
+                  title="Coming soon"
+                >
+                  <LiquidMetal size={260} mountDelayMs={delay} />
+                </div>
+                <span
+                  style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}
+                >
+                  Coming soon
+                </span>
               </div>
-              <span
-                style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}
-              >
-                Coming soon
-              </span>
-            </div>
-
-            {/* Placeholder 3 */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 16,
-                  background: "rgba(2,6,23,0.6)",
-                  border: "1px solid rgba(148,163,184,0.15)",
-                  padding: 8,
-                }}
-                title="Coming soon"
-              >
-                <LiquidMetal size={260} mountDelayMs={900} />
-              </div>
-              <span
-                style={{ color: "#94a3b8", fontSize: 20, fontWeight: 700 }}
-              >
-                Coming soon
-              </span>
-            </div>
+            ))}
           </div>
 
           <div
+            className="metaballs-fx"
             style={{
               position: "absolute",
               bottom: -200,
@@ -311,7 +277,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Our Goal */}
+        {/* OUR GOAL */}
         <section
           id="goal"
           style={{
@@ -325,7 +291,6 @@ export default function App() {
             style={{
               position: "absolute",
               inset: 0,
-              width: "100%",
               zIndex: 0,
               opacity: 0.55,
               filter: "blur(50px)",
@@ -339,7 +304,6 @@ export default function App() {
               style={{
                 width: "100vw",
                 height: "100%",
-                minWidth: "100%",
                 objectFit: "cover",
               }}
             />
@@ -352,47 +316,16 @@ export default function App() {
               margin: "0 auto",
               padding: "0 24px",
               display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(280px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: 32,
-              alignItems: "stretch",
               position: "relative",
               zIndex: 1,
             }}
           >
             {/* Left Card */}
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.95)",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
-                borderRadius: 16,
-                padding: 28,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                minHeight: 260,
-              }}
-            >
-              <h3
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(26px, 4vw, 36px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  letterSpacing: 0.2,
-                  color: "#0b1220",
-                }}
-              >
-                our goal.
-              </h3>
-              <p
-                style={{
-                  margin: "12px 0 0",
-                  color: "#1e293b",
-                  fontSize: "clamp(16px, 2vw, 18px)",
-                  lineHeight: 1.9,
-                }}
-              >
+            <div className="white-card">
+              <h3>our goal.</h3>
+              <p>
                 Empower everyone to understand and responsibly build with AI. We
                 design approachable resources and hands-on projects that blend
                 clarity, rigor, and creativity—so learners can explore, question,
@@ -401,35 +334,20 @@ export default function App() {
             </div>
 
             {/* Right Card */}
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.95)",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
-                borderRadius: 16,
-                padding: 28,
-                display: "grid",
-                gap: 14,
-                alignContent: "center",
-                minHeight: 260,
-              }}
-            >
-              <div style={{ color: "#1e293b", fontSize: 16 }}>
-                Plain-English explanations backed by working demos.
-              </div>
-              <div style={{ color: "#1e293b", fontSize: 16 }}>
-                Open projects that invite contributions and critique.
-              </div>
-              <div style={{ color: "#1e293b", fontSize: 16 }}>
+            <div className="white-card">
+              <div>Plain-English explanations backed by working demos.</div>
+              <div>Open projects that invite contributions and critique.</div>
+              <div>
                 Practical ethics: evaluating trade-offs, risks, and impacts.
               </div>
             </div>
           </div>
         </section>
 
-        {/* Ribbon */}
+        {/* RIBBON */}
         <section
           aria-hidden="true"
-          style={{ width: "100%", padding: "24px 0 8px" }}
+          style={{ width: "100%", padding: "24px 0 48px" }}
         >
           <div
             style={{
@@ -450,254 +368,13 @@ export default function App() {
                 opacity: 0.65,
                 filter: "drop-shadow(0 8px 24px rgba(2,6,23,0.35))",
               }}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
+              onError={(e) => (e.currentTarget.style.display = "none")}
             />
-          </div>
-        </section>
-
-        {/* About */}
-        <section
-          id="about"
-          style={{
-            width: "100%",
-            padding: "64px 0 120px",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              zIndex: 0,
-              opacity: 0.55,
-              filter: "blur(50px)",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              overflow: "hidden",
-            }}
-          >
-            <MeshGradient
-              variant="about"
-              style={{
-                width: "100vw",
-                height: "100%",
-                minWidth: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              maxWidth: 1200,
-              margin: "0 auto",
-              padding: "0 24px",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.95)",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
-                borderRadius: 16,
-                padding: 28,
-              }}
-            >
-              <h3
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(26px, 4vw, 34px)",
-                  color: "#0b1220",
-                  fontWeight: 800,
-                }}
-              >
-                about us.
-              </h3>
-              <p
-                style={{
-                  margin: "12px 0 0",
-                  color: "#1e293b",
-                  lineHeight: 1.95,
-                  fontSize: "clamp(16px, 2vw, 18px)",
-                }}
-              >
-                RandomForest is a nonprofit for AI education. We build public
-                resources, workshops, and open projects to help people understand
-                and evaluate modern AI systems—while developing practical skills
-                and informed judgment.
-              </p>
-            </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: 24,
-                marginTop: 28,
-              }}
-            >
-              {/* Vansh Card */}
-              <div style={{ padding: 2, borderRadius: 16 }}>
-                <div
-                  style={{
-                    background: "rgba(2,6,23,0.65)",
-                    border: "1px solid rgba(148,163,184,0.18)",
-                    borderRadius: 14,
-                    padding: 16,
-                    display: "flex",
-                    gap: 16,
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: 12,
-                      overflow: "hidden",
-                      flex: "0 0 auto",
-                      background: "#0b1220",
-                      display: "grid",
-                      placeItems: "center",
-                      color: "#e2e8f0",
-                      fontWeight: 700,
-                      position: "relative",
-                    }}
-                  >
-                    <img
-                      src="/vansh.jpg"
-                      alt="Vansh Gutgutia"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
-                    <span style={{ position: "absolute" }}>VG</span>
-                  </div>
-                  <div
-                    style={{ display: "flex", flexDirection: "column", gap: 6 }}
-                  >
-                    <span
-                      style={{
-                        color: "#e2e8f0",
-                        fontSize: 17,
-                        fontWeight: 600,
-                      }}
-                    >
-                      Vansh Gutgutia
-                    </span>
-                    <a
-                      href="mailto:vansh.gutgutia@gmail.com"
-                      style={{
-                        color: "#60a5fa",
-                        fontSize: 14,
-                        textDecoration: "none",
-                      }}
-                    >
-                      vansh.gutgutia@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Anthony Card */}
-              <div style={{ padding: 2, borderRadius: 16 }}>
-                <div
-                  style={{
-                    background: "rgba(2,6,23,0.65)",
-                    border: "1px solid rgba(148,163,184,0.18)",
-                    borderRadius: 14,
-                    padding: 16,
-                    display: "flex",
-                    gap: 16,
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: 12,
-                      overflow: "hidden",
-                      flex: "0 0 auto",
-                      background: "#0b1220",
-                      display: "grid",
-                      placeItems: "center",
-                      color: "#e2e8f0",
-                      fontWeight: 700,
-                      position: "relative",
-                    }}
-                  >
-                    <img
-                      src="/anthony.jpg"
-                      alt="Anthony Wang"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                      }}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
-                    <span style={{ position: "absolute" }}>AW</span>
-                  </div>
-                  <div
-                    style={{ display: "flex", flexDirection: "column", gap: 6 }}
-                  >
-                    <span
-                      style={{
-                        color: "#e2e8f0",
-                        fontSize: 17,
-                        fontWeight: 600,
-                      }}
-                    >
-                      Anthony Wang
-                    </span>
-                    <a
-                      href="mailto:anthonywang5000@gmail.com"
-                      style={{
-                        color: "#60a5fa",
-                        fontSize: 14,
-                        textDecoration: "none",
-                      }}
-                    >
-                      anthonywang5000@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              style={{
-                position: "absolute",
-                top: 80,
-                right: -120,
-                zIndex: 2,
-                opacity: 0.9,
-                pointerEvents: "none",
-              }}
-            >
-              <Metaballs variant="variant" style={{ width: "450px", height: "350px" }} />
-            </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
+      {/* FOOTER */}
       <footer
         style={{
           width: "100%",
