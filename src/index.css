@@ -77,3 +77,6 @@ button:focus-visible {
   background-size: 200% 200%;
   animation: rf-flow 6s ease infinite;
 }
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
