@@ -273,3 +273,60 @@ body { margin: 0; background: #020617; color: var(--text); }
 
   .lede { max-width: 560px; }
 }
+
+/* Scroll Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dynamic Gradient Animation */
+.animated-bg {
+  animation: hueShift 12s ease-in-out infinite alternate;
+}
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg) saturate(1.1); }
+  50% { filter: hue-rotate(40deg) saturate(1.2); }
+  100% { filter: hue-rotate(75deg) saturate(1.15); }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 24px; height: 24px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border 0.2s ease;
+  z-index: 1000;
+  mix-blend-mode: difference;
+}
+body:hover .custom-cursor {
+  animation: none;
+}
+
+/* Cursor hover grow effect */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+.project-tile:hover ~ .custom-cursor {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* Cursor JS */
+body {
+  cursor: none;
+}
+
+/* JS-like effect via pseudo-interaction */
+html, body {
+  height: 100%;
+}

@@ -2,11 +2,31 @@ import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
 import "./App.css";
+import { useEffect } from "react";
 
 export default function App() {
+  // Fade-in animation on scroll
+  useEffect(() => {
+    const sections = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div id="top" className="site-root">
-      {/* Header (black theme) */}
+      {/* Custom Cursor */}
+      <div className="custom-cursor"></div>
+
+      {/* Header */}
       <header className="site-header">
         <div className="header-wrap">
           <a href="#top" className="brand" aria-label="RandomForest Home">
@@ -21,7 +41,7 @@ export default function App() {
 
       {/* Main */}
       <main>
-        {/* Hero video with white side gutters */}
+        {/* Hero video */}
         <section className="hero">
           <video
             src="/STG_boost.mp4"
@@ -33,10 +53,9 @@ export default function App() {
           />
         </section>
 
-        {/* Intro (text only; gif is NOT here) */}
+        {/* Intro — text removed */}
         <section className="intro section reveal">
           <div className="container intro-inner">
-            <h1 className="title-xl">RandomForest</h1>
             <p className="lede">
               Practical AI learning—clear, rigorous, hands-on. We design
               approachable resources and projects so anyone can build and
@@ -44,19 +63,16 @@ export default function App() {
             </p>
           </div>
 
-          {/* Decorative metaballs (top/right), safely in-bounds */}
           <div className="blob blob-top-right">
             <Metaballs style={{ width: 380, height: 300 }} />
           </div>
         </section>
 
-        {/* Projects (polished) */}
+        {/* Projects */}
         <section id="projects" className="section reveal">
           <div className="container">
             <h2 className="title-lg">our projects</h2>
-
             <div className="projects-grid">
-              {/* Live Project */}
               <a
                 className="project-tile"
                 href="https://randomforest.co/yaitc"
@@ -74,7 +90,6 @@ export default function App() {
                 </div>
               </a>
 
-              {/* Tasteful placeholders */}
               {[450, 900].map((delay, i) => (
                 <div className="project-tile disabled" key={i} aria-disabled="true">
                   <span className="tile-border" />
@@ -91,9 +106,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* Goal — fade edges exactly like About, effect stays within mask */}
+        {/* Goal */}
         <section id="goal" className="section section-gradient fade-edges reveal">
-          <div className="mesh-bg clamp-effect">
+          <div className="mesh-bg animated-bg">
             <MeshGradient />
           </div>
 
@@ -112,7 +127,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Ribbon GIF — stays between Goal and About; NO white edges */}
+        {/* Ribbon */}
         <section aria-hidden="true" className="section ribbon reveal">
           <div className="container center">
             <img
@@ -124,9 +139,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* About — same fade, clamped effect; blobs not clipped */}
+        {/* About */}
         <section id="about" className="section section-gradient fade-edges reveal">
-          <div className="mesh-bg clamp-effect">
+          <div className="mesh-bg animated-bg">
             <MeshGradient variant="about" />
           </div>
 
@@ -140,7 +155,6 @@ export default function App() {
             </p>
 
             <div className="team">
-              {/* Vansh */}
               <div className="team-card">
                 <div className="avatar">
                   <img
@@ -156,7 +170,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Anthony */}
               <div className="team-card">
                 <div className="avatar">
                   <img
@@ -174,7 +187,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Decorative metaballs (bottom/left), moved in-bounds */}
           <div className="blob blob-bottom-left">
             <Metaballs style={{ width: 320, height: 260 }} />
           </div>
@@ -188,3 +200,14 @@ export default function App() {
     </div>
   );
 }
+
+useEffect(() => {
+  const cursor = document.querySelector(".custom-cursor");
+  const move = (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  };
+  window.addEventListener("mousemove", move);
+  return () => window.removeEventListener("mousemove", move);
+}, []);
+
