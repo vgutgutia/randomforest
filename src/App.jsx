@@ -5,8 +5,8 @@ import "./App.css";
 import { useEffect } from "react";
 
 export default function App() {
-  // Fade-in animation on scroll
   useEffect(() => {
+    // 1️⃣ Scroll animation for sections
     const sections = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -16,9 +16,20 @@ export default function App() {
       },
       { threshold: 0.1 }
     );
-
     sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+
+    // 2️⃣ Custom cursor movement
+    const cursor = document.querySelector(".custom-cursor");
+    const move = (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    };
+    window.addEventListener("mousemove", move);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("mousemove", move);
+    };
   }, []);
 
   return (
@@ -53,7 +64,7 @@ export default function App() {
           />
         </section>
 
-        {/* Intro — text removed */}
+        {/* Intro */}
         <section className="intro section reveal">
           <div className="container intro-inner">
             <p className="lede">
@@ -62,7 +73,6 @@ export default function App() {
               evaluate modern AI systems with confidence.
             </p>
           </div>
-
           <div className="blob blob-top-right">
             <Metaballs style={{ width: 380, height: 300 }} />
           </div>
@@ -166,7 +176,9 @@ export default function App() {
                 </div>
                 <div className="team-meta">
                   <span className="name">Vansh Gutgutia</span>
-                  <a href="mailto:vansh.gutgutia@gmail.com">vansh.gutgutia@gmail.com</a>
+                  <a href="mailto:vansh.gutgutia@gmail.com">
+                    vansh.gutgutia@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -181,7 +193,9 @@ export default function App() {
                 </div>
                 <div className="team-meta">
                   <span className="name">Anthony Wang</span>
-                  <a href="mailto:anthonywang5000@gmail.com">anthonywang5000@gmail.com</a>
+                  <a href="mailto:anthonywang5000@gmail.com">
+                    anthonywang5000@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -200,14 +214,3 @@ export default function App() {
     </div>
   );
 }
-
-useEffect(() => {
-  const cursor = document.querySelector(".custom-cursor");
-  const move = (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-  };
-  window.addEventListener("mousemove", move);
-  return () => window.removeEventListener("mousemove", move);
-}, []);
-
