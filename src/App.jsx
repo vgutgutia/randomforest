@@ -1,6 +1,8 @@
 import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
+import CampSlideshow from "./CampSlideshow";
+
 import "./App.css";
 import { useEffect } from "react";
 
@@ -68,7 +70,7 @@ export default function App() {
         <section className="intro section reveal">
           <div className="container intro-inner">
             <p className="lede">
-              Practical AI learning—clear, rigorous, hands-on. We design
+              Practical AI learning— inclear, rigorous, hands-on. We design
               approachable resources and projects so anyone can build and
               evaluate modern AI systems with confidence.
             </p>
@@ -82,6 +84,15 @@ export default function App() {
         <section id="projects" className="section reveal">
           <div className="container">
             <h2 className="title-lg">our projects</h2>
+            <CampSlideshow
+  images={[
+    "/camp1.jpg",
+    "/camp2.jpg",
+    "/camp3.jpg",
+    "/camp4.jpg"
+  ]}
+/>
+
             <div className="projects-grid">
               <a
                 className="project-tile"
