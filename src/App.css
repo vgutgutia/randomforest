@@ -27,7 +27,7 @@ body { margin: 0; background: #020617; color: var(--text); }
 /* Header (black-themed) */
 .site-header {
   width: 100%;
-  background: rgba(2, 6, 23, 0.9);
+  background: rgba(10, 31, 18, 0.9); /* deep forest green */
   color: #e2e8f0;
   border-bottom: 1px solid rgba(148,163,184,0.12);
   position: sticky;
@@ -35,6 +35,7 @@ body { margin: 0; background: #020617; color: var(--text); }
   z-index: 50;
   backdrop-filter: saturate(1.1) blur(8px);
 }
+
 .header-wrap {
   max-width: min(1200px, 95%);
   margin: 0 auto;
@@ -77,10 +78,15 @@ body { margin: 0; background: #020617; color: var(--text); }
 .hero::before,
 .hero::after {
   content: "";
-  position: absolute; top: 0; bottom: 0; width: 14px; z-index: 2;
-  background: #fff; /* solid white gutters */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  z-index: 2;
+  background: #000; /* changed to black */
   pointer-events: none;
 }
+
 .hero::before { left: 0; }
 .hero::after { right: 0; }
 
