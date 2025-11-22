@@ -94,7 +94,6 @@ export default function HomePage() {
                 "/camp2.jpg",
                 "/camp3.jpg",
                 "/camp4.jpg",
-                "/camp5.jpg"
               ]}
             />
 
