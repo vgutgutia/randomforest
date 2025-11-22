@@ -1,12 +1,13 @@
+import { useEffect } from "react";
 import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
+import CampSlideshow from "./CampSlideshow"; // slideshow import
 import "./App.css";
-import { useEffect } from "react";
 
 export default function HomePage() {
   useEffect(() => {
-    // 1️⃣ Scroll animation for sections
+    // Reveal-on-scroll animation
     const sections = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -18,7 +19,7 @@ export default function HomePage() {
     );
     sections.forEach((s) => observer.observe(s));
 
-    // 2️⃣ Custom cursor movement
+    // Custom cursor
     const cursor = document.querySelector(".custom-cursor");
     const move = (e) => {
       cursor.style.left = e.clientX + "px";
@@ -34,26 +35,28 @@ export default function HomePage() {
 
   return (
     <div id="top" className="site-root">
+
       {/* Custom Cursor */}
       <div className="custom-cursor"></div>
 
       {/* Header */}
       <header className="site-header">
         <div className="header-wrap">
-          <a href="#top" className="brand" aria-label="RandomForest Home">
+          <a href="/" className="brand" aria-label="RandomForest Home">
             <LiquidMetal size={56} mountDelayMs={0} style={{ borderRadius: 10 }} />
           </a>
           <nav className="nav">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="/yaitc">YAITC</a> {/* You can remove this if you don’t want it in nav */}
+            <a href="/yaitc">YAITC</a>
           </nav>
         </div>
       </header>
 
-      {/* Main */}
+      {/* MAIN PAGE */}
       <main>
-        {/* Hero video */}
+
+        {/* Hero Section */}
         <section className="hero">
           <video
             src="/STG_boost.mp4"
@@ -79,16 +82,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Projects */}
+        {/* PROJECTS SECTION */}
         <section id="projects" className="section reveal">
           <div className="container">
             <h2 className="title-lg">our projects</h2>
+
+            {/* ⭐ SLIDESHOW ADDED RIGHT HERE */}
+            <CampSlideshow
+              images={[
+                "/camp1.jpg",
+                "/camp2.jpg",
+                "/camp3.jpg",
+                "/camp4.jpg",
+                "/camp5.jpg"
+              ]}
+            />
+
             <div className="projects-grid">
               <a
                 className="project-tile"
-                href="https://randomforest.co/yaitc"
-                target="_blank"
-                rel="noreferrer noopener"
+                href="/yaitc"
                 aria-label="YAITC project"
               >
                 <span className="tile-border" />
@@ -117,7 +130,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Goal */}
+        {/* Goal Section */}
         <section id="goal" className="section section-gradient fade-edges reveal">
           <div className="mesh-bg animated-bg">
             <MeshGradient />
@@ -150,7 +163,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* About */}
+        {/* About Section */}
         <section id="about" className="section section-gradient fade-edges reveal">
           <div className="mesh-bg animated-bg">
             <MeshGradient variant="about" />
@@ -206,6 +219,7 @@ export default function HomePage() {
             <Metaballs style={{ width: 320, height: 260 }} />
           </div>
         </section>
+
       </main>
 
       {/* Footer */}
