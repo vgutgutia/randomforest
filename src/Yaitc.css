@@ -1,100 +1,115 @@
+/* ROOT WRAPPER */
 .yaitc-root {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 80px 20px;
+    padding: 80px 0;
     color: #e5ebf6;
-    display: flex;
-    justify-content: center;
+    display: block; /* prevents center squishing */
+    overflow-x: hidden;
   }
   
-  /* Mesh background container */
+  /* MESH BACKGROUND */
   .yaitc-mesh-bg {
     position: absolute;
     inset: 0;
+    overflow: hidden;
     z-index: 0;
     opacity: 0.55;
     filter: blur(40px);
-    overflow: hidden;
   }
   
-  /* Back to home button */
+  /* MAIN CONTENT WRAPPER */
+  .yaitc-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* BACK BUTTON */
   .yaitc-back-btn {
     position: absolute;
     top: 24px;
     left: 24px;
-    z-index: 10;
+    z-index: 20;
     font-size: 14px;
     color: #dbe5f3;
     text-decoration: none;
     opacity: 0.8;
     transition: opacity 0.2s;
   }
-  
   .yaitc-back-btn:hover {
     opacity: 1;
     text-decoration: underline;
   }
   
+  /* HEADER */
   .yaitc-header {
-    position: relative;
-    z-index: 2;
     text-align: center;
+    margin-bottom: 20px;
   }
-  
   .yaitc-title {
     font-family: "DM Serif Display", ui-serif, Georgia;
     font-size: clamp(38px, 6vw, 56px);
+    font-weight: 700;
     color: #fff;
-    margin-bottom: 18px;
+    margin: 0 0 10px;
   }
   
-  .yaitc-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    text-align: center;
-  }
-  
+  /* INTRO TEXT */
   .yaitc-lede {
     max-width: 680px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 40px;
     font-size: clamp(17px, 2.2vw, 19px);
     color: #dce4f2;
     line-height: 1.85;
+    text-align: center;
   }
   
+  /* SECTION BLOCK */
   .yaitc-section {
-    margin-top: 40px;
+    margin: 60px 0;
+    text-align: center;
   }
   
   .yaitc-subtitle {
     font-family: "DM Serif Display", ui-serif, Georgia;
     font-size: clamp(26px, 4vw, 34px);
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
     text-transform: lowercase;
   }
   
+  /* BODY TEXT */
+  .yaitc-section p {
+    max-width: 700px;
+    margin: 12px auto;
+    line-height: 1.75;
+    color: #cfd9e8;
+  }
+  
+  /* LIST */
   .yaitc-list {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 500px;
+    margin: 10px auto;
+    max-width: 520px;
     color: #c9d3e7;
     font-size: 17px;
     line-height: 1.8;
   }
-  
   .yaitc-list li {
-    margin: 10px 0;
+    margin: 8px 0;
   }
   
-  /* Iframe wrapper */
+  /* IFRAME */
   .yaitc-iframe-wrapper {
     width: 100%;
     max-width: 900px;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 9 / 16; /* mobile app aspect */
     margin: 0 auto;
     border-radius: 18px;
     overflow: hidden;
@@ -109,14 +124,16 @@
     border: none;
   }
   
+  /* FOOTER */
   .yaitc-footer {
-    margin-top: 80px;
+    margin-top: 60px;
+    padding-bottom: 40px;
     text-align: center;
     color: #9ba8c1;
-    font-size: 14px;
-    padding-bottom: 40px;
+    font-size: 13px;
   }
   
+  /* MOBILE */
   @media (max-width: 768px) {
     .yaitc-root {
       padding-top: 120px;
