@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import LiquidMetal from "./LiquidMetal";
 import MeshGradient from "./MeshGradient";
 import Metaballs from "./Metaballs";
@@ -48,7 +49,7 @@ export default function HomePage() {
           <nav className="nav">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="/yaitc">YAITC</a>
+            <Link to="/yaitc">YAITC</Link>
           </nav>
         </div>
       </header>
@@ -98,9 +99,9 @@ export default function HomePage() {
             />
 
             <div className="projects-grid">
-              <a
+              <Link
                 className="project-tile"
-                href="/yaitc"
+                to="/yaitc"
                 aria-label="YAITC project"
               >
                 <span className="tile-border" />
@@ -111,7 +112,7 @@ export default function HomePage() {
                     <span className="name">YAITC</span>
                   </div>
                 </div>
-              </a>
+              </Link>
 
               {[450, 900].map((delay, i) => (
                 <div className="project-tile disabled" key={i} aria-disabled="true">
