@@ -1,39 +1,39 @@
-.slideshow-wrapper {
+.camp-slider {
     width: 100%;
     overflow: hidden;
-    border-radius: 18px;
-    margin: 32px 0;
-    border: 1px solid rgba(148,163,184,0.22);
-    background: rgba(2,6,23,0.6);
-    backdrop-filter: blur(6px);
+    padding: 24px 0;
+    position: relative;
   }
   
-  .slideshow-track {
+  .camp-track {
     display: flex;
-    gap: 14px;
-    padding: 14px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+    gap: 22px;
+    animation: campLoop 35s linear infinite;
   }
   
-  .slideshow-track::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .slide-img {
+  .camp-slide img {
     height: 180px;
     width: auto;
-    flex-shrink: 0;
-    border-radius: 12px;
+    border-radius: 14px;
     object-fit: cover;
-    border: 1px solid rgba(148,163,184,0.18);
+    flex-shrink: 0;
+    border: 1px solid rgba(148,163,184,0.22);
+    background: #0b1220;
     filter: brightness(0.95);
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: filter 0.25s ease;
   }
   
-  .slide-img:hover {
-    transform: scale(1.04);
-    filter: brightness(1.05);
+  .camp-slide img:hover {
+    filter: brightness(1.1);
+  }
+  
+  /* Infinite marquee animation */
+  @keyframes campLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   
