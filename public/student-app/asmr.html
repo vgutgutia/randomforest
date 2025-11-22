@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity - Your Daily Wellness Companion</title>
+    <link rel="stylesheet" href="asmr.css">
+</head>
+<body>
+    <div class="waves-background"></div>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title">Serenity</h1>
+            <p class="app-subtitle">Your daily wellness companion</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <button class="nav-btn active" data-page="home">
+                <span class="icon">🏠</span>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="sounds">
+                <span class="icon">🎵</span>
+                <span>Sounds</span>
+            </button>
+            <button class="nav-btn" data-page="progress">
+                <span class="icon">📊</span>
+                <span>Progress</span>
+            </button>
+        </nav>
+
+        <!-- Home Page -->
+        <div class="page active" id="home-page">
+            <!-- Welcome Section -->
+            <div class="card welcome-card">
+                <h2>Welcome back. 👋</h2>
+                <p>How are you feeling today?</p>
+            </div>
+
+            <!-- Daily Check-in -->
+            <div class="card">
+                <h2>Daily Check-in</h2>
+                <div class="mood-buttons">
+                    <button class="mood-btn" data-mood="great">
+                        <span class="mood-emoji">😊</span>
+                        <span>Great</span>
+                    </button>
+                    <button class="mood-btn" data-mood="okay">
+                        <span class="mood-emoji">😐</span>
+                        <span>Okay</span>
+                    </button>
+                    <button class="mood-btn" data-mood="stressed">
+                        <span class="mood-emoji">😰</span>
+                        <span>Stressed</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Daily Challenge -->
+            <div class="card challenge-card">
+                <h2>🌟 Daily Challenge</h2>
+                <div id="challenge-content">
+                    <p class="challenge-text" id="challenge-text"></p>
+                    <div class="challenge-actions">
+                        <button class="action-btn hint-btn" id="hint-btn">💡 Hint</button>
+                        <button class="action-btn skip-btn" id="skip-btn">⏭️ Skip</button>
+                        <button class="action-btn complete-btn" id="complete-btn">✓ Complete</button>
+                    </div>
+                    <div id="hint-text" class="hint-text hidden"></div>
+                </div>
+            </div>
+
+            <!-- Streak & Achievements -->
+            <div class="stats-row">
+                <div class="stat-card streak-card">
+                    <div class="stat-icon">✨</div>
+                    <div class="stat-label">Current Streak</div>
+                    <div class="stat-value" id="streak-value">0 days</div>
+                </div>
+                <div class="stat-card achievement-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-label">Achievements</div>
+                    <div class="stat-value" id="achievement-count">0</div>
+                </div>
+            </div>
+
+            <!-- Daily Tip -->
+            <div class="card tip-card">
+                <h2>💭 Daily Tip</h2>
+                <p id="daily-tip"></p>
+            </div>
+        </div>
+
+        <!-- Sounds Page -->
+        <div class="page" id="sounds-page">
+            <!-- ASMR Sounds -->
+            <div class="card">
+                <h2>🎧 ASMR Sounds</h2>
+                <div class="sound-grid">
+                    <button class="sound-btn" data-sound="rain" data-type="asmr">
+                        <span class="sound-icon">🌧️</span>
+                        <span>Rain</span>
+                    </button>
+                    <button class="sound-btn" data-sound="ocean" data-type="asmr">
+                        <span class="sound-icon">🌊</span>
+                        <span>Ocean Waves</span>
+                    </button>
+                    <button class="sound-btn" data-sound="forest" data-type="asmr">
+                        <span class="sound-icon">🌲</span>
+                        <span>Forest</span>
+                    </button>
+                    <button class="sound-btn" data-sound="fire" data-type="asmr">
+                        <span class="sound-icon">🔥</span>
+                        <span>Crackling Fire</span>
+                    </button>
+                    <button class="sound-btn" data-sound="wind" data-type="asmr">
+                        <span class="sound-icon">💨</span>
+                        <span>Gentle Wind</span>
+                    </button>
+                    <button class="sound-btn" data-sound="birds" data-type="asmr">
+                        <span class="sound-icon">🐦</span>
+                        <span>Birds Chirping</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Music -->
+            <div class="card">
+                <h2>🎵 Music</h2>
+                <div class="sound-grid">
+                    <button class="sound-btn" data-sound="meditation" data-type="music">
+                        <span class="sound-icon">🧘</span>
+                        <span>Meditation</span>
+                    </button>
+                    <button class="sound-btn" data-sound="piano" data-type="music">
+                        <span class="sound-icon">🎹</span>
+                        <span>Peaceful Piano</span>
+                    </button>
+                    <button class="sound-btn" data-sound="ambient" data-type="music">
+                        <span class="sound-icon">✨</span>
+                        <span>Ambient</span>
+                    </button>
+                    <button class="sound-btn" data-sound="nature" data-type="music">
+                        <span class="sound-icon">🍃</span>
+                        <span>Nature Symphony</span>
+                    </button>
+                    <button class="sound-btn" data-sound="lofi" data-type="music">
+                        <span class="sound-icon">☕</span>
+                        <span>Lo-fi</span>
+                    </button>
+                    <button class="sound-btn" data-sound="jazz" data-type="music">
+                        <span class="sound-icon">🎷</span>
+                        <span>Jazz</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Progress Page -->
+        <div class="page" id="progress-page">
+            <!-- Weekly Goal -->
+            <div class="card">
+                <h2>📅 Weekly Goal</h2>
+                <p class="goal-label">Check-ins this week</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="weekly-progress-bar"></div>
+                </div>
+                <p class="progress-text"><span id="weekly-checkins">0</span>/7</p>
+            </div>
+
+            <!-- Recent Activity Calendar -->
+            <div class="card">
+                <h2>📆 Recent Activity</h2>
+                <div class="activity-calendar" id="activity-calendar"></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="card">
+                <h2>📊 Your Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-days">0</div>
+                        <div class="stat-label">Total Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-weeks">0</div>
+                        <div class="stat-label">Weeks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-achievements">0</div>
+                        <div class="stat-label">Achievements</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements List -->
+            <div class="card">
+                <h2>🏅 Your Achievements</h2>
+                <div id="achievements-list" class="achievements-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Player - Fixed position, visible when audio is playing -->
+    <div id="audio-player-container" class="audio-player hidden">
+        <div class="audio-player-content">
+            <div class="now-playing">
+                <span id="now-playing-icon">🎵</span>
+                <span id="now-playing-text">Now Playing</span>
+            </div>
+            <button class="audio-control-btn" id="stop-audio-btn">⏹️ Stop</button>
+        </div>
+    </div>
+
+    <script src="asmr.js"></script>
+</body>
+</html>

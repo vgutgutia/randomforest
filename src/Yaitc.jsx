@@ -4,8 +4,12 @@ import "./Yaitc.css";
 export default function Yaitc() {
   return (
     <div className="yaitc-root">
+
+      {/* Back Button */}
+      <a href="/" className="yaitc-back-btn">← back to main site</a>
+
       <header className="yaitc-header">
-        <h1 className="yaitc-title">youth ai tech club</h1>
+        <h1 className="yaitc-title">Youth AI Tech Club</h1>
       </header>
 
       <div className="yaitc-mesh-bg">
@@ -13,15 +17,16 @@ export default function Yaitc() {
       </div>
 
       <main className="yaitc-content">
+
         <p className="yaitc-lede">
           we teach the next generation of builders how modern ai works—clearly,
           simply, and hands-on.
         </p>
 
         <section className="yaitc-section">
-          <h2 className="yaitc-subtitle">our mission</h2>
+          <h2 className="yaitc-subtitle">our mission.</h2>
           <p>
-            the youth ai tech club makes ai education accessible, creative, and
+            the Youth AI Tech Club makes AI education accessible, creative, and
             empowering. we help young learners explore concepts through art,
             music, storytelling, and code—while developing real understanding of
             how intelligent systems work.
@@ -36,17 +41,30 @@ export default function Yaitc() {
         <section className="yaitc-section">
           <h2 className="yaitc-subtitle">what students learn</h2>
           <ul className="yaitc-list">
-            <li>how ai models understand text, images, and sound</li>
-            <li>ai for art, music, animation, and storytelling</li>
+            <li>how AI models understand text, images, and sound</li>
+            <li>AI for art, music, animation, and storytelling</li>
             <li>building simple generative tools</li>
             <li>designing safe + responsible ai projects</li>
-            <li>making a real ai-powered app by the end</li>
+            <li>making a real app using AI by the end</li>
           </ul>
+        </section>
+
+        {/* ⭐ Student Project Embed */}
+        <section className="yaitc-section">
+          <h2 className="yaitc-subtitle">student project example</h2>
+
+          <div className="yaitc-iframe-wrapper">
+            <iframe
+              src="/student-app/asmr.html"
+              title="Student Project"
+              className="yaitc-iframe"
+            />
+          </div>
         </section>
       </main>
 
       <footer className="yaitc-footer">
-        © {new Date().getFullYear()} randomforest — youth ai tech club
+        © {new Date().getFullYear()} RandomForest — Youth AI Tech Club
       </footer>
     </div>
   );

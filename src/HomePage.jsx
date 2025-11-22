@@ -73,8 +73,8 @@ export default function HomePage() {
         <section className="intro section reveal">
           <div className="container intro-inner">
             <p className="lede">
-              Practical AI learning— inclear, rigorous, hands-on. We design
-              approachable resources and projects so anyone can build and
+              Practical AI learning— fun, rigorous, and hands-on. We design
+              approachable resources and projects so the youth can build and
               evaluate modern AI systems with confidence.
             </p>
           </div>
